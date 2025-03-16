@@ -130,10 +130,24 @@
     height: 100%;
     background: url('mole.png') no-repeat center;
     background-size: contain;
-    position: absolute;
+    position: relative;
     bottom: 0%; 
     /* Hidden by default */
     transition: bottom 0.3s ease-in-out;
+}
+.whack-points{
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    width: 50px;
+    height: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    top: 35px;
+    left: 25px;
+    z-index: 10;
+    color: rgba(141, 50, 50, 0.6);
+    background: rgb(89, 201, 89);
 }
 
 .whack-game-over{

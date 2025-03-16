@@ -36,13 +36,25 @@ function showMole() {
     const mole = document.createElement("div");
     mole.classList.add("mole");
 
+
     // Add click event to mole
     mole.addEventListener("click", () => {
+        //Create and show point popup
+        const points = document.createElement("div")
+        points.classList.add("whack-points")
+        points.textContent = "+100pts"
+        mole.appendChild(points)
+
         const sound = new Audio("./sounds/hit.wav")
         sound.play()
-        score++;
+        score +=100;
         scoreCount.textContent = score;
-        mole.remove(); // Remove mole after hit
+
+        // Animate/remove points after 500ms
+        setTimeout(() => {
+            points.remove();
+            mole.remove(); // Remove mole after hit/showing points
+        }, 1000);
     });
 
     hole.appendChild(mole);
@@ -52,7 +64,7 @@ function showMole() {
         mole.remove();
         // Show another mole
         showMole();
-    }, 1000);
+    }, 1200);
 }
 
 //Game Timer countdown function
