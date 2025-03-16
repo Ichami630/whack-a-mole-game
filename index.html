@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Whack a mole</title>
+</head>
+<body>
+    <div class="whack">
+        <div class="whack-bg">
+            <div class="countdown">00:00</div>
+            <div class="whack-setting">
+                <div class="gear" id="gear">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                </div>
+                <div class="gear-menus" id="gearMenus">
+                    <div class="gear">
+                        <i class="fa fa-volume-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="gear">
+                        <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="whack-score">Score: <span class="score-count">0</span></div>
+            
+            <div class="whack-content">
+                <div class="start-whack">
+                    <h1 class="whack-title">WHACK - A - MOLE</h1>
+                    <button class="play-whack" title="click to start the game">Start</button>
+                </div>
+                <div class="whack-holes">
+                    <div class="hole" data-id="0"></div>
+                    <div class="hole" data-id="1"></div>
+                    <div class="hole" data-id="2"></div>
+                    <div class="hole" data-id="3"></div>
+                    <div class="hole" data-id="4"></div>
+                    <div class="hole" data-id="5"></div>
+                </div>
+                <div class="whack-game-over">
+                    <div class="over-box">
+                        <h1>Game Over</h1>
+                        <h2>400 PTS</h2>
+                        <button class="play-whack">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./whack-mole.js"></script>
+</body>
+</html>
