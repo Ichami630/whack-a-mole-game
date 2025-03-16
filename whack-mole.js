@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded",()=>{
-    const startSound = new Audio("./sounds/start.wav")
-    startSound.play();
+    playSound("start.wav")
 })
 // Select DOM elements
 const button = document.querySelector(".play-whack");
@@ -11,12 +10,34 @@ const gearMenus = document.querySelector(".gear-menus");
 const countDownDisplay = document.querySelector(".countdown");
 const scoreCount = document.querySelector(".score-count");
 const scoreDisplay = document.querySelector(".whack-score");
+const volume = document.querySelector(".whack-volume");
 
 let score = 0;
 let timeRemaining = 15;
 let gameTimer;
 let moleTimer;
 let gameActive = false;
+let isSound = true;
+
+//utility to toggle volume
+volume.addEventListener("click",()=>{
+    const volumeIcon = volume.querySelector("i")
+    if(volumeIcon.classList.contains("fa-volume-up")){
+        volumeIcon.classList.remove("fa-volume-up")
+        volumeIcon.classList.add("fa-volume-down")
+        isSound = false;
+    }else{
+        volumeIcon.classList.remove("fa-volume-down")
+        volumeIcon.classList.add("fa-volume-up")
+        isSound = true;  
+    }
+})
+
+//utility to play sound
+function playSound(audio){
+    const sound = new Audio("./sounds/"+audio)
+    isSound ? sound.play():''
+}
 
 //Utility to get random hole
 function getRandomHole() {
@@ -45,8 +66,7 @@ function showMole() {
         points.textContent = "+100pts"
         mole.appendChild(points)
 
-        const sound = new Audio("./sounds/hit.wav")
-        sound.play()
+        playSound("hit.wav")
         score +=100;
         scoreCount.textContent = score;
 
@@ -76,8 +96,7 @@ function startTimer() {
         countDownDisplay.textContent = formattedTime;
 
         if(timeRemaining <= 10){
-            const sound = new Audio("./sounds/warning.wav")
-            sound.play()
+            playSound("warning.wav")
         }
         if (timeRemaining <= 0) {
             clearInterval(gameTimer);
@@ -91,8 +110,7 @@ function startTimer() {
 
 //Start the Game
 function startGame() {
-    const sound = new Audio("./sounds/gameon.wav")
-    sound.play();
+    playSound("gameon.wav")
     score = 0;
     timeRemaining = 15;
     gameActive = true;
