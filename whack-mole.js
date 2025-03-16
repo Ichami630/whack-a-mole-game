@@ -13,7 +13,7 @@ const scoreDisplay = document.querySelector(".whack-score");
 const volume = document.querySelector(".whack-volume");
 
 let score = 0;
-let timeRemaining = 15;
+let timeRemaining = 30;
 let gameTimer;
 let moleTimer;
 let gameActive = false;
@@ -84,7 +84,7 @@ function showMole() {
         mole.remove();
         // Show another mole
         showMole();
-    }, 1200);
+    }, 1000);
 }
 
 //Game Timer countdown function
@@ -95,7 +95,7 @@ function startTimer() {
         const formattedTime = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         countDownDisplay.textContent = formattedTime;
 
-        if(timeRemaining <= 10){
+        if(timeRemaining <= 10 && gameActive){
             playSound("warning.wav")
         }
         if (timeRemaining <= 0) {
@@ -112,7 +112,7 @@ function startTimer() {
 function startGame() {
     playSound("gameon.wav")
     score = 0;
-    timeRemaining = 15;
+    timeRemaining = 30;
     gameActive = true;
     scoreCount.textContent = score;
 
